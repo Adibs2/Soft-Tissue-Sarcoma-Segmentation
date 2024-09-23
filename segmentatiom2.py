@@ -246,23 +246,23 @@ plt.show(block=False)
 print(LSF)
 
 # Perform the level set evolution
-LSF = mod_test(LSF, Image, img, step_size, epsilon, mu, rho_dict, lambda_dict, num)
+LSF = modified_test(LSF, Image, img, step_size, epsilon, mu, rho_dict, lambda_dict, num)
 
 """**MST Image (מרקם)**"""
 
 MSRB_MST_rho = list(zip(*rho_dict['MST']))
-res_MSRB_MST = calc_res_list(img, list(MSRB_MST_rho[0]), list(MSRB_MST_rho[1]))
-MST_img = mod_MST(res_MSRB_MST)
+res_MSRB_MST = calculate_results(img, list(MSRB_MST_rho[0]), list(MSRB_MST_rho[1]))
+MST_img = modified_mst(res_MSRB_MST)
 plt.imshow(MST_img)
 
 """**MSRB Image (בהירות יחסית)**"""
 
 MSRB_MST_rho = list(zip(*rho_dict['MSRB']))
-res_MSRB_MST = calc_res_list(img, list(MSRB_MST_rho[0]), list(MSRB_MST_rho[1]))
-MSRB_img = mod_MSRB(res_MSRB_MST)
+res_MSRB_MST = calculate_results(img, list(MSRB_MST_rho[0]), list(MSRB_MST_rho[1]))
+MSRB_img = modified_msrb(res_MSRB_MST)
 plt.imshow(MSRB_img)
 
 """**MSB Image (בהירות אובסולוטית)**"""
 
-MSB_img = MSB(img, rho_dict['MSB'])
+MSB_img = msb(img, rho_dict['MSB'])
 plt.imshow(MSB_img)
